@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 38px;
+}
+
+.item{
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+   font-family: arial;
+   font-size: 20px;
+}
+
+span {
+    color: red;
+    text-decoration-line:underline;
+}
+
+.tooltip {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    max-width: 300px;
+    font-size: 18px;
+    border:1px solid;
+    padding: 5px;
+
+}
+
+
