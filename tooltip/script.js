@@ -1,18 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+const tooltip = function () {
 
-<div class="item">
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, repellendus<span title="tooltip">Lorem, ipsum</span> Lorem ipsum dolor sit amet consectetur. Lorem, ipsum <span title="tooltip2">Lorem, ipsum</span> Lorem ipsum dolor sit, amet consectetur adipisicing.
-    </p>
-</div>
+    const tooltips = document.querySelectorAll('[title]');
+    if (tooltips.length === 0) return;
 
-<script src="script.js"></script>
-</body>
-</html>
+    const ownTooltip = document.createElement('div');
+    ownTooltip.classList.add('tooltip');
+
+
+    const removeDefaultTooltip = function (elem) {
+        document.body.append(ownTooltip);
+
+        let title = elem.getAttribute('title');
+        ownTooltip.style.left = elem.offsetLeft + 'px';
+        ownTooltip.style.top = (elem.offsetTop + 50) + 'px';
+        ownTooltip.innerHTML = title;
+        elem.removeAttribute('title');
+    }
+
+    const addDefaultTooltip = function (elem) {
+        elem.setAttribute('title', ownTooltip.innerHTML);
+        ownTooltip.remove();
+    }
+
+    tooltips.forEach(elemTooltip => {
+
+        elemTooltip.addEventListener('mouseover', function() {
+            removeDefaultTooltip(elemTooltip);
+        })
+
+        elemTooltip.addEventListener('mouseleave', function (){
+            addDefaultTooltip(elemTooltip);
+        })
+    })
+
+}
+
+tooltip();
+
