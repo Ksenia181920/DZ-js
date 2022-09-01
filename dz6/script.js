@@ -38,7 +38,7 @@ alert(c);
 
 //6
 
-function addZero(num) {
+function add (num) {
 	if (num >= 0 && num <= 9) {
 		return '0' + num;
 	} else {
@@ -46,8 +46,21 @@ function addZero(num) {
 	}
 }
 let date = new Date();
-console.log(addZero(date.getFullYear()) + '.' + addZero(date.getMonth() + 1) + '.' + addZero(date.getDate()));
+console.log(add (date.getFullYear()) + '.' + add(date.getMonth() + 1) + '.' + add(date.getDate()));
+
+//7
+let str6 = 'aa aba abba abbba abca abea';
+console.log(str.replace(/ab*a/g, '!'));
+
+
+//8
+number = +375293456789;   // return true
+
+
+regexp = ;
+
+console.log(regexp.test(number));
+number2 = 80293456789;
 
 //
-let str3 = 'aa aba abba abbba abca abea';
-console.log(str.replace(/ab*a/g, '!'));
+
